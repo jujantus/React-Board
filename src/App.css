@@ -1,5 +1,6 @@
 body {
 	background-color: rgb(15, 190, 103);
+	/* max-width: 100%; */
 }
 
 input:focus,
@@ -20,11 +21,18 @@ button:focus {
 }
 
 .BoardGrid {
-	height: 600px;
-	width: 600px;
+	/* height: 300px;
+	width: 300px; */
+
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;
+}
+
+@media (max-width: 600px) {
+	.BoardGrid {
+		max-width: 350vw;
+	}
 }
 
 .SquareRow {
@@ -34,10 +42,27 @@ button:focus {
 }
 
 .Square {
-	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	height: 6em;
+	width: 6em;
+	/* flex-grow: 1; */
 	background-color: white;
 	border-collapse: collapse;
 	border: 2px solid black;
+}
+
+.Square img {
+	max-height: 90%;
+	max-width: 90%;
+	margin: auto;
+}
+
+.cross {
+	background-color: red;
+}
+.circle {
+	background-color: blue;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

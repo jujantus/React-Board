@@ -8,14 +8,15 @@ export default class Grid extends React.Component {
 	}
 
 	render() {
-		const colNum = this.props.board[0].length;
-		const rowNum = this.props.board.length;
-
 		return (
 			<div className="Container">
 				<div className="Wrapper">
-					<BoardGrid dimensions={this.props.board} />
-					<div className="RowButtons">
+					<BoardGrid
+						cases={this.props.cases}
+						handleClick={this.props.handleClick}
+						dimensions={this.props.board}
+					/>
+					{/* <div className="RowButtons">
 						<button onClick={() => this.props.remove('y')} className="Btn">
 							-
 						</button>
@@ -23,10 +24,10 @@ export default class Grid extends React.Component {
 						<button onClick={() => this.props.add('y')} className="Btn">
 							+
 						</button>
-					</div>
+					</div> */}
 				</div>
 
-				<div className="ColumnButtons">
+				{/* <div className="ColumnButtons">
 					<button onClick={() => this.props.remove('x')} className="Btn">
 						-
 					</button>
@@ -34,7 +35,7 @@ export default class Grid extends React.Component {
 					<button onClick={() => this.props.add('x')} className="Btn">
 						+
 					</button>
-				</div>
+				</div> */}
 			</div>
 		);
 	}

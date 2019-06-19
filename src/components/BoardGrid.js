@@ -3,11 +3,20 @@ import Square from './Square';
 
 const boardGrid = (props) => (
 	<div className="BoardGrid">
-		{props.dimensions.map((row, index) => {
+		{props.dimensions.map((row, rowIndex) => {
 			return (
-				<div key={index} className="SquareRow">
-					{row.map((square) => {
-						return <Square clicked={props.handleClick} />;
+				<div key={rowIndex} className="SquareRow">
+					{row.map((square, colIndex) => {
+						return (
+							<Square
+								key={[ rowIndex, colIndex ]}
+								cases={props.cases}
+								value={square}
+								row={rowIndex}
+								col={colIndex}
+								clicked={props.handleClick}
+							/>
+						);
 					})}
 				</div>
 			);
