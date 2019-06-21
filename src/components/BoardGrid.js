@@ -3,7 +3,7 @@ import Square from './Square';
 
 const boardGrid = (props) => (
 	<div className="BoardGrid">
-		{props.dimensions.map((row, rowIndex) => {
+		{props.board.map((row, rowIndex) => {
 			return (
 				<div key={rowIndex} className="SquareRow">
 					{row.map((square, colIndex) => {

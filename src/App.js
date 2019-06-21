@@ -10,14 +10,7 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			board: [
-				[ 0, 0, 0, 0, 0, 0 ],
-				[ 0, 0, 0, 0, 0, 0 ],
-				[ 0, 0, 0, 0, 0, 0 ],
-				[ 0, 0, 0, 0, 0, 0 ],
-				[ 0, 0, 0, 0, 0, 0 ],
-				[ 0, 0, 0, 0, 0, 0 ]
-			],
+			board: [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ],
 			cases: {
 				0: null,
 				1: white,
@@ -28,47 +21,6 @@ export default class App extends React.Component {
 			}
 		};
 	}
-
-	// remove = (axis) => {
-	// 	let board = [ ...this.state.board ];
-
-	// 	switch (axis) {
-	// 		case 'y':
-	// 			if (board.length > 1) {
-	// 				board.pop();
-	// 			}
-	// 			break;
-
-	// 		case 'x':
-	// 			board.forEach((row) => {
-	// 				if (row.length > 1) {
-	// 					row.pop();
-	// 				}
-	// 			});
-	// 			break;
-
-	// 		default:
-	// 	}
-	// 	this.setState({ board });
-	// };
-
-	// add = (axis) => {
-	// 	let board = [ ...this.state.board ];
-
-	// 	switch (axis) {
-	// 		case 'y':
-	// 			let newRow = board[0].map(() => 0);
-	// 			board.push(newRow);
-	// 			break;
-
-	// 		case 'x':
-	// 			board.forEach((row) => row.push(0));
-	// 			break;
-
-	// 		default:
-	// 	}
-	// 	this.setState({ board });
-	// };
 
 	handleClick = (row, col) => {
 		let board = [ ...this.state.board ];
@@ -81,14 +33,6 @@ export default class App extends React.Component {
 	};
 
 	render() {
-		return (
-			<Grid
-				handleClick={this.handleClick}
-				cases={this.state.cases}
-				// add={this.add}
-				// remove={this.remove}
-				board={this.state.board}
-			/>
-		);
+		return <Grid handleClick={this.handleClick} cases={this.state.cases} board={this.state.board} />;
 	}
 }
