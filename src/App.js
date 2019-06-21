@@ -27,7 +27,9 @@ export default class App extends React.Component {
 		let values = Object.keys(this.state.cases);
 		values = values.map((el) => parseInt(el, 10));
 		let currentValue = board[row][col];
+		// ESTE ES EL PASO QUE CAMBIARÍA
 		let nextValueIndex = values.indexOf(currentValue) + 1 === values.length ? 0 : values.indexOf(currentValue) + 1;
+		//
 		board[row][col] = values[nextValueIndex];
 		this.setState({ board });
 	};
