@@ -14,7 +14,7 @@ const boardGrid = (props) => (
 								value={square}
 								row={rowIndex}
 								col={colIndex}
-								clicked={props.handleClick}
+								handleClick={props.handleClick}
 							/>
 						);
 					})}

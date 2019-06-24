@@ -11,26 +11,18 @@ export default class App extends React.Component {
 		super(props);
 		this.state = {
 			board: [ [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ], [ 0, 0, 0, 0 ] ],
-			cases: {
-				0: null,
-				1: white,
-				2: blue,
-				3: black,
-				4: red,
-				5: green
-			}
+			cases: [ null, white, blue, black, red, green ]
 		};
 	}
 
 	handleClick = (row, col) => {
-		let board = [ ...this.state.board ];
-		let values = Object.keys(this.state.cases);
-		values = values.map((el) => parseInt(el, 10));
+		let board = this.state.board.map((row) => [ ...row ]);
+		let cases = [ ...this.state.cases ];
 		let currentValue = board[row][col];
 		// ESTE ES EL PASO QUE CAMBIARÍA
-		let nextValueIndex = values.indexOf(currentValue) + 1 === values.length ? 0 : values.indexOf(currentValue) + 1;
+		let nextValue = currentValue + 1 === cases.length ? 0 : currentValue + 1;
 		//
-		board[row][col] = values[nextValueIndex];
+		board[row][col] = nextValue;
 		this.setState({ board });
 	};
 
